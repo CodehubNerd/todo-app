@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import { BsCircle } from 'react-icons/bs'
+import { FaRegCheckCircle } from 'react-icons/fa'
 import  './Formcontaier.css'
 
 
@@ -42,9 +43,9 @@ const Formcontainer = () => {
   /*completed tasks*/
   const completedtask = (listId) => {
     const selecteditems = list.map((itemSelected) =>
-      item.id === listId ? { ...itemSelected, isSelected: !itemSelected.isSelected }
+    itemSelected.id === listId ? { ...itemSelected, isSelected: !itemSelected.isSelected }
     :itemSelected)
-      
+    setList(selecteditems);
   }
 
 
@@ -66,8 +67,15 @@ const Formcontainer = () => {
       <div className='task-list-container' >
       {list.map((item) => (
      <div className='task' key={item.id}>
-       <BsCircle/>
-      <h2>{item.task}</h2>
+          
+          {item.isCompleted ? (<FaRegCheckCircle/>) : (<BsCircle/>)}
+          <h2
+            style={{
+              textDecoration: item.isCompleted ? 'line-through' : 'none',
+              color: item.isCompleted ? 'gray' : 'black'
+            
+            }}
+          >{item.task}</h2>
  </div>
  ))}
 </div>
