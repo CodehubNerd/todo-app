@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import { BsCircle } from 'react-icons/bs'
 import { FaRegCheckCircle } from 'react-icons/fa'
+import { LiaTimesSolid } from 'react-icons/lia'
 import  './Formcontaier.css'
 
 
@@ -36,8 +37,8 @@ const Formcontainer = () => {
   to our task list otherwise if its false or the ids macth we remove the task from the list */
 
   const handledeleteTask = (taskId) => {
-    const updatedtask = task.filter((task) => task.id !== taskId);
-    setTask(updatedtask);
+    const updatedtask = list.filter((task) => task.id !== taskId);
+    setList(updatedtask);
   }
 
   /*completed tasks*/
@@ -67,15 +68,28 @@ const Formcontainer = () => {
       <div className='task-list-container' >
       {list.map((item) => (
      <div className='task' key={item.id}>
-          
-          {item.isCompleted ? (<FaRegCheckCircle/>) : (<BsCircle/>)}
-          <h2
+          <div className='selecteIcon-text'>
+            <div>
+            <FaRegCheckCircle className='icon'/>
+            </div>
+             
+            <div>
+            <h2
             style={{
               textDecoration: item.isCompleted ? 'line-through' : 'none',
               color: item.isCompleted ? 'gray' : 'black'
+            }}>
             
-            }}
-          >{item.task}</h2>
+            {item.task}</h2>
+            </div>
+          
+         
+          </div>
+          <div>
+          <LiaTimesSolid className='icon' onClick={() => handledeleteTask(item.id)}/>
+         </div>
+        
+
  </div>
  ))}
 </div>
