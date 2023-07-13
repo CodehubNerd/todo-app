@@ -1,0 +1,21 @@
+.topbackground{
+    background-image: url("../../assets/bg-desktop.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 10px;
+    width: 100%;
+    height: 200px;
+   
+}
+.application-Holder{
+    width: 600px;
+    margin: 0 auto;
+  }
+.app-heading-top{
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+padding-top: 40px;
+  font-weight: 700;
+  
+}
