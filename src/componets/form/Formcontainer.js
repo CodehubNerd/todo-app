@@ -11,7 +11,22 @@ const Formcontainer = () => {
   const [list, setList] = useState([]);
   const [task, setTask] = useState('');
   const [error, setError] = useState('');
-  const [Complete, setComplete] = useState([]);
+ 
+
+
+/*storing the our task list to the web browser*/
+
+useEffect(() => {
+  const storedTasks = sessionStorage.getItem('list');
+  if (storedTasks) {
+    try {
+      setList(JSON.parse(storedTasks));
+    } catch (error) {
+      console.error('Error parsing stored tasks:', error);
+      setList([]); 
+    }
+  }
+}, []);
 
 
   /*functions*/
@@ -44,8 +59,7 @@ const Formcontainer = () => {
   /*completed tasks*/
   const completedtask = (listId) => {
     const selecteditems = list.map((itemSelected) =>
-    itemSelected.id === listId ? { ...itemSelected, isSelected: !itemSelected.isSelected }
-    :itemSelected)
+    itemSelected.id === listId ? { ...itemSelected, isSelected: !itemSelected.isSelected } :itemSelected)
     setList(selecteditems);
   }
 
@@ -70,14 +84,14 @@ const Formcontainer = () => {
      <div className='task' key={item.id}>
           <div className='selecteIcon-text'>
             <div>
-            <FaRegCheckCircle className='icon'/>
+            <FaRegCheckCircle  onClick={() => completedtask(item.id)} className='icon'/>
             </div>
              
             <div>
             <h2
             style={{
-              textDecoration: item.isCompleted ? 'line-through' : 'none',
-              color: item.isCompleted ? 'gray' : 'black'
+              textDecoration: item.isSelected ? 'line-through' : 'none',
+              color: item.isSelected ? 'gray' : 'black'
             }}>
             
             {item.task}</h2>
