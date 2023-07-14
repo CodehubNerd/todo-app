@@ -15,35 +15,33 @@ const Formcontainer = () => {
 
 
 /*storing the our task list to the web browser*/
-
 useEffect(() => {
-  const storedTasks = sessionStorage.getItem('list');
-  if (storedTasks) {
-    try {
-      setList(JSON.parse(storedTasks));
-    } catch (error) {
-      console.error('Error parsing stored tasks:', error);
-      setList([]); 
-    }
+  const storedTasklist = localStorage.getItem('list');
+  if (storedTasklist) {
+    setList(JSON.parse(storedTasklist));
   }
 }, []);
 
 
+
+
+
   /*functions*/
   const handlesubmit = () => {
-    if (task == 0) {
-      setError(() => {
-        return (
-          <h2 className='error'>Write something in the text input</h2>
-        )
-      })
-
+    if (task.trim() === '') {
+      setError(() => (
+        <h2 className='error'>Write something in the text input</h2>
+      ));
     } else {
       const id = list.length + 1;
-      setList(previousState => [...previousState, { id: id, task: task }]);
+      const updatedList = [...list, { id, task }];
+      setList(updatedList);
       setTask('');
+  
+      localStorage.setItem('list', JSON.stringify(updatedList));
     }
-  }
+  };
+  
 
   /*Deleting the task*/
   /*we pass taskId as aparameter then , we illarate trought ours tasks using filter method
@@ -54,7 +52,9 @@ useEffect(() => {
   const handledeleteTask = (taskId) => {
     const updatedtask = list.filter((task) => task.id !== taskId);
     setList(updatedtask);
-  }
+    localStorage.setItem('list', JSON.stringify(updatedtask));
+  };
+  
 
   /*completed tasks*/
   const completedtask = (listId) => {
@@ -63,6 +63,11 @@ useEffect(() => {
     setList(selecteditems);
   }
 
+  /*storing the typed task on browser histroy*/
+  const handleChnage = (e) => {
+    const updatedTask = e.target.value;
+    setTask(updatedTask);
+  }
 
   return (
     <div className='formdesign  application-Holder'>
