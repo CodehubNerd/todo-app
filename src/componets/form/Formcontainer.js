@@ -27,6 +27,9 @@ useEffect(() => {
 
 
   /*functions*/
+
+  /*function for submiting our typed task to the browswer , the function then feacthes the text from 
+  our browser and display it on  our screen*/
   const handlesubmit = () => {
     if (task.trim() === '') {
       setError(() => (
@@ -56,12 +59,14 @@ useEffect(() => {
   };
   
 
-  /*completed tasks*/
+  /*mark completed tasks*/
   const completedtask = (listId) => {
     const selecteditems = list.map((itemSelected) =>
     itemSelected.id === listId ? { ...itemSelected, isSelected: !itemSelected.isSelected } :itemSelected)
     setList(selecteditems);
   }
+/* preventing downloading source code if you have not tested the application
+on how it works*/
 
 
   return (
@@ -109,8 +114,20 @@ useEffect(() => {
  </div>
       ))}
             <a href="https://github.com/CodehubNerd/todo-app/archive/refs/heads/main.zip" download>
-            <button>Download Source Code</button>
+            <button className=''>Download Source Code</button>
             </a>
+
+            <div className='notes-for-use'>
+              <div><p>Add task <span>@plus</span> icon</p></div>
+                
+             
+              <div><p>Mark completed task<span>@tick</span>icon</p></div>
+
+             
+              <div><p>Delete  task <span>@cross</span> icon</p></div>
+
+             
+            </div>
            
 </div>
      

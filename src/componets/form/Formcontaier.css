@@ -90,3 +90,21 @@ cursor: pointer;
 padding: 7px;
 border-radius: 6px;
 }
+.notes-for-use{
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+p{
+font-family: 'Josefin Sans', sans-serif;
+font-weight: 400;
+font-size: 12px;
+color: hsl(235, 19%, 35%);
+}
+span{
+  background: #a09e9e;
+  padding: 4px;
+  color: black;
+  border-radius: 6px;
+}
