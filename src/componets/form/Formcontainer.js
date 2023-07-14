@@ -63,11 +63,7 @@ useEffect(() => {
     setList(selecteditems);
   }
 
-  /*storing the typed task on browser histroy*/
-  const handleChnage = (e) => {
-    const updatedTask = e.target.value;
-    setTask(updatedTask);
-  }
+
 
   return (
     <div className='formdesign  application-Holder'>
