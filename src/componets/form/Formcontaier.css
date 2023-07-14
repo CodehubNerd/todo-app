@@ -3,16 +3,7 @@
     margin: 0 auto;
    
   }
-  @media only screen and (max-width: 375px) {
-
-    .application-Holder{
-      width: 100%;
-     
-    }
-    .mobile-divice-container{
-      padding: 10px;
-    }
-  }
+ 
   
   /*inputfeild*/
 
@@ -107,4 +98,24 @@ span{
   padding: 4px;
   color: black;
   border-radius: 6px;
+}
+
+/*mobile devices styles*/
+@media only screen and (max-width: 375px) {
+
+  .application-Holder{
+    width: 100%;
+   
+  }
+  .mobile-divice-container{
+    padding: 10px;
+  }
+
+  .notes-for-use{
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+    align-items: center;
+  }
+
 }
