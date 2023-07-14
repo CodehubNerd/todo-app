@@ -101,7 +101,7 @@ span{
 }
 
 /*mobile devices styles*/
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 475px) {
 
   .application-Holder{
     width: 100%;
