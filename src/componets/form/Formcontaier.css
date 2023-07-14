@@ -3,7 +3,17 @@
     margin: 0 auto;
    
   }
- 
+  @media only screen and (max-width: 375px) {
+
+    .application-Holder{
+      width: 100%;
+     
+    }
+    .mobile-divice-container{
+      padding: 10px;
+    }
+  }
+  
   /*inputfeild*/
 
   .form-feilds-container{
@@ -67,4 +77,16 @@ display: flex;
 }
 .icon{
 color: hsl(234, 11%, 52%);  
+}
+button{
+margin-top: 30px;
+border: none;
+font-family: 'Josefin Sans', sans-serif;
+font-weight: 700;
+font-size: 10px;
+background: gold;
+color: black;
+cursor: pointer;
+padding: 7px;
+border-radius: 6px;
 }

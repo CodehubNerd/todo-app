@@ -1,8 +1,8 @@
 import React,{useState, useEffect} from 'react';
-import { BsCircle } from 'react-icons/bs'
-import { FaRegCheckCircle } from 'react-icons/fa'
-import { LiaTimesSolid } from 'react-icons/lia'
-import  './Formcontaier.css'
+import { BsCircle } from 'react-icons/bs';
+import { FaRegCheckCircle } from 'react-icons/fa';
+import { LiaTimesSolid } from 'react-icons/lia';
+import './Formcontaier.css';
 
 
 const Formcontainer = () => {
@@ -65,7 +65,9 @@ useEffect(() => {
 
 
   return (
-    <div className='formdesign  application-Holder'>
+    <>
+      <div className='mobile-divice-container'>
+      <div className='formdesign  application-Holder'>
       
       <div className='form-feilds-container'>
       <div className="input-container"><BsCircle style={{cursor:'pointer'}} onClick={handlesubmit}/> </div>   
@@ -105,11 +107,16 @@ useEffect(() => {
         
 
  </div>
- ))}
+      ))}
+            <button>Download Source Code</button>
 </div>
      
      
 </div>
+      </div>
+      
+    </>
+   
   )
 }
 
