@@ -64,7 +64,6 @@ useEffect(() => {
   }
 
 
-
   return (
     <div className='formdesign  application-Holder'>
       
